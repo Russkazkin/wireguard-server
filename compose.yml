@@ -6,7 +6,7 @@ services:
     environment:
       - LANG=en
       - WG_HOST=77.66.177.168
-
+      - PASSWORD_HASH=${PASSWORD_HASH}
       # Optional:
       # - PASSWORD_HASH=$$2y$$10$$hBCoykrB95WSzuV4fafBzOHWKu9sbyVa34GJr8VV5R/pIelfEMYyG (needs double $$, hash of 'foobar123'; see "How_to_generate_an_bcrypt_hash.md" for generate the hash)
       # - PORT=51821
@@ -25,7 +25,7 @@ services:
       # - UI_CHART_TYPE=0 # (0 Charts disabled, 1 # Line chart, 2 # Area chart, 3 # Bar chart)
 
     image: ghcr.io/wg-easy/wg-easy
-    container_name: ${COMPOSE_PROJECT_NAME}
+    container_name: wg-server
     volumes:
       - etc_wireguard:/etc/wireguard
     ports:
